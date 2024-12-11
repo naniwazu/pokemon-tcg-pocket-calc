@@ -1,0 +1,40 @@
+\documentclass[a4paper,12pt]{jsarticle}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+% Page layout settings
+\geometry{left=25mm, right=25mm, top=30mm, bottom=30mm}
+
+\begin{document}
+$n$枚の山札のうち, $m$枚がたねポケモンであるとする. $m$枚のたねポケモンのうち, $1$枚が当たりである.
+オーキド博士とモンスターボールを使って当たりを引く確率を求める.（便宜上、$3 \leqq m \leqq n-2$とする.）
+
+オーキド→ボールと使った場合, オーキドで引くたねの枚数ごとに場合分けすることで
+\begin{equation*}
+    p_1 = \frac{m(m-1)}{n(n-1)} \cdot \frac{3}{m}
+    + \frac{2m(n-m)}{n(n-1)} \cdot \frac{2}{m}
+    + \frac{2(n-m)(n-m-1)}{n(n-1)} \cdot \frac{1}{m}
+    = \frac{m^2+2n^2-m-2n}{mn(n-1)}
+\end{equation*}
+
+ボール→オーキドと使った場合
+\begin{equation*}
+    p_2 = \frac{1}{m} + \left(1-\frac{1}{m}\right) \cdot \frac{2}{n-1} = \frac{2m+n-3}{m(n-1)}
+\end{equation*}
+
+その差は
+\begin{equation*}
+    p_1 - p_2 = \frac{m^2-2mn+n^2-m+n}{mn(n-1)} = \frac{(n-m)(n-m-1)}{mn(n-1)} > 0
+\end{equation*}
+より, 常にオーキド→ボールと使った方が当たりを引く確率が高い.
+
+例えば1ターン目を想定して$n=14, m=3$の場合を考えると,
+
+オーキド→ボールと使った場合67.8％で狙いのカードを引けるのに対して,
+
+ボール→オーキドと使った場合43.5％でしか引くことができない.
+
+人事を尽くして天命を待つべし. 先1フリーザー？そんなものは知らん.
+\end{document}
